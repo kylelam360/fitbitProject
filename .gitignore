@@ -196,3 +196,7 @@ cython_debug/
 # Ignore large Fitbit data files that were removed from repo
 pre-process/master_heartrate_seconds.csv
 pre-process/master_minuteCaloriesNarrow.csv
+
+# Ignore Pycharm files previously added to repo
+.idea/
+.DS_Store

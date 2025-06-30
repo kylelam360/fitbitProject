@@ -21,7 +21,27 @@ datasets = [
     "master_weightLogInfo.csv"
 ]
 
-for dataset in datasets:
-    df = pd.read_csv(dataset)
-    unique_ids = df["Id"].nunique()
-    print(f"Unique User IDs in {dataset}: {unique_ids}")
+
+# Finding number of unique id's for each dataset
+# for dataset in datasets:
+#     df = pd.read_csv(dataset)
+#     unique_ids = df["Id"].nunique()
+#     print(f"Unique User IDs in {dataset}: {unique_ids}")
+
+
+# Finding min and max MET value by each unique user id
+df = pd.read_csv("master_minuteMETsNarrow.csv")
+result = df.groupby('Id')['METs'].agg(['min', 'max']).reset_index()
+print(result)
+
+# Finding mode of MET values
+mode_value = df['METs'].mode().iloc[0]
+print(f"Mode of METs: is {mode_value}")
+
+# Count of mode MET value
+count_10 = (df['METs'] == 10).sum()
+print(f"Number of METs == 10: {count_10}")
+
+# Determining if 0's in dataset are real due to infrequency in visual
+print((df['METs'] == 0).sum())
+print(df[df['METs'] == 0].head())

@@ -23,10 +23,10 @@ datasets = [
 
 
 # Finding number of unique id's for each dataset
-# for dataset in datasets:
-#     df = pd.read_csv(dataset)
-#     unique_ids = df["Id"].nunique()
-#     print(f"Unique User IDs in {dataset}: {unique_ids}")
+for dataset in datasets:
+    df = pd.read_csv(dataset)
+    unique_ids = df["Id"].nunique()
+    print(f"Unique User IDs in {dataset}: {unique_ids}")
 
 
 # Finding min and max MET value by each unique user id
